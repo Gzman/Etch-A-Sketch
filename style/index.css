@@ -19,43 +19,80 @@ nav {
   background: transparent;
 }
 
+:root {
+  --grid-cell-count: 16;
+  --grid-width: 50rem;
+}
+
 html {
   font-size: 14px;
   font-family: sans-serif;
 }
 
 body {
-  height: 100vh;
+  height: auto;
   width: 100vw;
+  background-color: whitesmoke;
   display: flex;
   flex-direction: column;
-  align-items: left;
+  justify-items: space-evenly;
+  align-items: center;
 }
 
-.grid {
-  padding: 1rem;
-  display: grid;
-  grid-template-columns: repeat(16, auto);
-  grid-template-rows: repeat(17, auto);
-  gap: 0.1rem 0.1rem;
-  justify-content: center;
+h1 {
+  font-size: 3.5rem;
+  color: darkslategrey;
 }
 
-.cell {
-  height: 3rem;
-  width: 3rem;
-  border: 0.1rem solid grey;
+.buttons {
+  width: var(--grid-width);
+  display: flex;
+  justify-content: end;
+  gap: 0rem 1rem;
+}
+
+input {
+  font-size: 1.5rem;
+  background-color: yellow;
+  border: 0.2rem solid darkslategray;
+  border-radius: 5%;
+}
+
+input:hover {
+  border-color: black;
+  box-shadow: 0rem 0rem 0.2rem black;
+}
+
+input:active {
+  background-color: whitesmoke;
 }
 
 .clear-button {
-  margin: 0rem 0rem 1rem 0rem;
-  grid-column: 1 / 17;
-  justify-self: end;
+  background-color: darkslategray;
+  color: whitesmoke;
+}
+
+.clear-button:active {
+  background-color: black;
+}
+
+.grid {
+  height: var(--grid-width);
+  width: var(--grid-width);
+  border: 0.2rem solid darkslategray;
+  margin: 1rem;
+  display: grid;
+  grid-template-columns: repeat(var(--grid-cell-count), 1fr);
+  grid-template-rows: repeat(var(--grid-cell-count), 1fr);
+}
+
+.cell {
+  border: 0.1rem solid darkslategray;
 }
 
 .cell-hover {
-  background-color: black;
-  border-color: gainsboro;
+  background-color: darkslategray;
+  border-color: none;
 }
 
 @media (max-width: 1000px) {
@@ -73,5 +110,11 @@ body {
 @media (max-width: 500px) {
   html {
     font-size: 8px;
+  }
+}
+
+@media (max-width: 400px) {
+  html {
+    font-size: 7px;
   }
 }
