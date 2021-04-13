@@ -4,6 +4,7 @@ const clearButton = document.querySelector(".clear-button");
 const sizeButton = document.querySelector(".custom-button");
 const x32Button = document.querySelector(".x32-button");
 const x64Button = document.querySelector(".x64-button");
+const colorSelector = document.querySelector(".color-selecter");
 
 function initGrid(cellCount = 16) {
     resetGrid();
@@ -12,6 +13,7 @@ function initGrid(cellCount = 16) {
         const cell = document.createElement("div");
         cell.classList.add("cell");
         cell.addEventListener("mouseenter", e => e.target.classList.add("cell-hover"));
+        cell.addEventListener("mousedown", e => e.target.classList.remove("cell-hover"));
         grid.append(cell);
     }
 }
@@ -39,5 +41,6 @@ sizeButton.addEventListener("click", changeGridSize);
 clearButton.addEventListener("click", clearGrid);
 x32Button.addEventListener("click", () => initGrid(32));
 x64Button.addEventListener("click", () => initGrid(64));
+colorSelector.addEventListener("change", e => document.documentElement.style.setProperty("--cell-color", e.target.value));
 
 initGrid();

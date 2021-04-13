@@ -22,6 +22,7 @@ nav {
 :root {
   --grid-cell-count: 16;
   --grid-width: 50rem;
+  --cell-color: darkslategray;
 }
 
 html {
@@ -52,6 +53,7 @@ h1 {
 }
 
 input {
+  height: 2.5rem;
   font-size: 1.5rem;
   background-color: yellow;
   border: 0.2rem solid darkslategray;
@@ -91,7 +93,7 @@ input:active {
 }
 
 .cell-hover {
-  background-color: darkslategray;
+  background-color: var(--cell-color);
   border-color: none;
 }
 
