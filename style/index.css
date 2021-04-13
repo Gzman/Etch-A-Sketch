@@ -38,6 +38,11 @@ body {
     justify-content: center;
 }
 
+.cell-hover {
+    background-color: black;
+    border-color: gainsboro;
+}
+
 @media (max-width: 1000px) {
     html {
         font-size: 12px;
