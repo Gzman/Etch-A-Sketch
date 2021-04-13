@@ -62,11 +62,15 @@ input {
 
 input:hover {
   border-color: black;
-  box-shadow: 0rem 0rem 0.2rem black;
+  box-shadow: 0rem 0rem 0.25rem black;
 }
 
 input:active {
   background-color: whitesmoke;
+}
+
+.color-selecter {
+  padding: 0.2rem;
 }
 
 .clear-button {

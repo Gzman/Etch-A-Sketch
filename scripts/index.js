@@ -5,6 +5,7 @@ const sizeButton = document.querySelector(".custom-button");
 const x32Button = document.querySelector(".x32-button");
 const x64Button = document.querySelector(".x64-button");
 const colorSelector = document.querySelector(".color-selecter");
+let mouseDownToEraese = false;
 
 function initGrid(cellCount = 16) {
     resetGrid();
@@ -12,8 +13,12 @@ function initGrid(cellCount = 16) {
     for (let i = 0; i < cellCount * cellCount; i++) {
         const cell = document.createElement("div");
         cell.classList.add("cell");
-        cell.addEventListener("mouseenter", e => e.target.classList.add("cell-hover"));
-        cell.addEventListener("mousedown", e => e.target.classList.remove("cell-hover"));
+        cell.addEventListener("mouseenter", e => {
+            if (mouseDownToEraese == false) e.target.classList.add("cell-hover");
+            else e.target.classList.remove("cell-hover");
+        });
+        cell.addEventListener("mousedown", e => mouseDownToEraese = true);
+        cell.addEventListener("mouseup", () => mouseDownToEraese = false);
         grid.append(cell);
     }
 }
